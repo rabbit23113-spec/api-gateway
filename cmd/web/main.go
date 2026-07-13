@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	logger "main/internal/adapters"
+
+	"go.uber.org/zap"
+)
 
 func main() {
-	fmt.Println("API Gateway")
+	zapLogger, err := zap.NewProduction()
+	if err != nil {
+		log.Fatalf("Error when initializing a logger: %v", err)
+	}
+	defer zapLogger.Sync()
+
+	lg := new(logger.ZapLogger)
+	logger := lg.NewZapLogger(zapLogger)
 }
