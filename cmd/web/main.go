@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"main/internal/adapters"
 	logger "main/internal/adapters"
 
 	"go.uber.org/zap"
@@ -15,4 +16,8 @@ func main() {
 	defer zapLogger.Sync()
 	lg := new(logger.ZapLogger)
 	logger := lg.NewZapLogger(zapLogger)
+
+	handler := adapters.Handler{
+		Logger: logger,
+	}
 }
