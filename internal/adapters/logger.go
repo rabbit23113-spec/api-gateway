@@ -1,4 +1,4 @@
-package logger
+package adapters
 
 import (
 	"main/internal/ports"

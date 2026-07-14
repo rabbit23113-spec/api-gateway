@@ -13,7 +13,6 @@ func main() {
 		log.Fatalf("Error when initializing a logger: %v", err)
 	}
 	defer zapLogger.Sync()
-
 	lg := new(logger.ZapLogger)
 	logger := lg.NewZapLogger(zapLogger)
 }
