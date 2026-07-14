@@ -20,4 +20,9 @@ func main() {
 	handler := adapters.Handler{
 		Logger: logger,
 	}
+
+	srv := new(adapters.Server)
+	if err := srv.Serve("11030", handler.InitRoutes()); err != nil {
+		logger.Error(err.Error())
+	}
 }
