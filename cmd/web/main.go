@@ -17,8 +17,10 @@ func main() {
 	lg := new(logger.ZapLogger)
 	logger := lg.NewZapLogger(zapLogger)
 
+	svc := new(adapters.Service)
 	handler := adapters.Handler{
-		Logger: logger,
+		Logger:  logger,
+		Service: svc,
 	}
 
 	srv := new(adapters.Server)

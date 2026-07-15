@@ -7,7 +7,8 @@ import (
 )
 
 type Handler struct {
-	Logger ports.ZapLogger
+	Logger  ports.ZapLogger
+	Service *Service
 }
 
 func (h *Handler) InitRoutes() *gin.Engine {
